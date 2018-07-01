@@ -18,5 +18,5 @@
 
 .idea/
 db/schema.rb
-
+config/initializers/devise*
 vendor/*
