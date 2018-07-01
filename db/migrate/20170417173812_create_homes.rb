@@ -1,10 +1,14 @@
 class CreateHomes < ActiveRecord::Migration[5.0]
-  def change
+  def up
     create_table :homes do |t|
-      t.Home :title
-      t.Home :note
+      t.string :title
+      t.string :note
 
       t.timestamps
     end
+  end
+
+  def down
+    drop_table :homes
   end
 end
