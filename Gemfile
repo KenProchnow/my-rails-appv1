@@ -45,10 +45,17 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'mysql2', '>= 0.3.13', '< 0.5'
+
+  # this is a unit/behavioural testing library
   gem 'rspec-rails'
+
+  # this allows you to create records in the db for testing
   gem 'factory_girl_rails'
-  gem 'spring'
+
   gem 'spring-commands-rspec'
+
+  # this is good for faking data to test with
+  gem 'ffaker'
 end
 
 group :test do
