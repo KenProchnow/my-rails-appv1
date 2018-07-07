@@ -36,6 +36,7 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
+      #new
       # this should be run before db migrations can work
       - run: rails generate devise:install
       - run: rails generate devise user
