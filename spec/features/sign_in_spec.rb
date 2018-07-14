@@ -3,15 +3,18 @@ require 'factory_girl_rails'
 
 feature 'sign into the app' do
   # let is lazy, it simply replaces before() not sure why you'd use it.
-  let(:user) {FactoryGirl.create(:user)}
+  # let(:user) {FactoryGirl.create(:user)}
+  setup do
+    @user = FactoryGirl.create(:user)
+  end
 
   # rspec spec/features/sign_in_spec.rb
   scenario 'log in' do
     visit('/')
     # click_link "Sign Up!"
     click_link "Login"
-    fill_in('user[email]', with: user.email)
-    fill_in('user[password]', with: user.password)
+    fill_in('user[email]', with: @user.email)
+    fill_in('user[password]', with: @user.password)
     click_button "Log in"
     expect(page).to have_content("Signed in successfully")
   end

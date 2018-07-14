@@ -1,0 +1,25 @@
+anguage: ruby
+rvm:
+ - 2.2
+# - jruby
+# - rbx-3
+
+services:
+  - mysql
+
+before_install:
+  - sudo mysql -e 'CREATE DATABASE rails_project_test;'
+  - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('root') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
+  - sudo service mysql restart
+
+script:
+  - bundle install
+#  - rails generate devise:install
+#  - rails generate devise user
+  - bundle exec rails db:migrate RAILS_ENV=test
+  - bundle exec rspec
+  # Database setup
+  - bundle exec rake db:create
+  - bundle exec rake db:schema:load
+  # run tests!
+  - bundle exec rspec

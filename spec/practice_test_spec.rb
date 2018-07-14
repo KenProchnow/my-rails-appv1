@@ -2,6 +2,7 @@ require_relative '../lib/tasks/practice_test'
 
 # to run all tests in this spec folder do this:
 # bundle exec rspec or bin/rspec
+# just `rake`  will run these tests to
 
 describe PracticeTest do
   context 'when something happens' do
